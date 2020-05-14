@@ -22,5 +22,5 @@ jobs:
     - name: upload Apk
       uses: actions/upload-artifact@v1
       with:
-        name: {GITHUB_SHA}app
+        name: ${{ github.sha }}app
         path: app/build/outputs/apk/debug/app-debug.apk
