@@ -13,19 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Fetch all history for all tags and branches
-      run: |
-        git fetch --prune --unshallow
-    - name: Install GitVersion
-      uses: ./gitversion/setup
-      with:
-        versionSpec: '5.x'
-    - name: Use GitVersion
-        id: gitversion # step id used as reference for output values
-        uses: ./gitversion/execute
-    - run: |
-        echo "FullSemVer: ${{ steps.gitversion.outputs.fullSemVer }}"
-    - uses: actions/checkout@v2
     - name: set up JDK 1.8
       uses: actions/setup-java@v1
       with:
